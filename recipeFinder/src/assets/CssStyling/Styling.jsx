@@ -34,6 +34,10 @@
       align-content: center;
   `
 
+  export const ResponseContainer = styled(Container)`
+    justify-content: center;
+  `
+
   //* button.
   export const Button = ({name, type, onClick, className}) => (
     <button
@@ -59,19 +63,23 @@
     transition: border-color 0.25s;
 
     &:hover {
-      background-color: #7e7e7e;
-      color: white;
+      background-color: whitesmoke;
+      color: black;
   }
   `
 
   //* search Input.
   export const Input = styled.input`
-    padding: 10px 5px;
+    padding: 12px 5px 12px 5px;
     border: none;
     border-radius: 5px;
     background-color: silver;
     &:hover {
       background-color: whitesmoke;
+      border: none;
+    }
+    &:active {
+      border: none;
     }
   `;
 

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import ResponseCards from './ResponseCards';
 // import styled from 'styled-components';
-import { Span, TopContainer, SearchInput, StyledButton, Container } from '../assets/CssStyling/Styling';
+import { Span, TopContainer, SearchInput, StyledButton, ResponseContainer } from '../assets/CssStyling/Styling';
 
 function SearchBoxInterface() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -46,9 +46,9 @@ function SearchBoxInterface() {
         </Span>
       </TopContainer>
 
-      <Container>
+      <ResponseContainer>
         <ResponseCards data={data}/>
-      </Container>
+      </ResponseContainer>
     </>
   );
 };

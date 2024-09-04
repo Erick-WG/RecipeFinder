@@ -2,7 +2,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
 import styled from 'styled-components';
-import { Container, Span } from '../assets/CssStyling/Styling';
+import { ResponseContainer, Span } from '../assets/CssStyling/Styling';
 
 const ResponseCards = ({data}) => {
   
@@ -21,11 +21,12 @@ const ResponseCards = ({data}) => {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     margin: 10px;
     padding: 15px;
     max-width: 400px;
     border-radius: 15px;
-    background-color: silver;
+    background-color: whitesmoke;
   `
 
   const CardContainer = ({key, ClassName, children}) => (
@@ -37,9 +38,10 @@ const ResponseCards = ({data}) => {
     </Card>
   );
 
+  //* Image
   const Image = styled.img`
     width: 100%;
-    height: 200px;
+    height: 400px;
     border-radius: 5px;
   `
 
@@ -50,10 +52,15 @@ const ResponseCards = ({data}) => {
     />
   );
 
+  //* Span
+  const ResSpan = styled(Span)`
+  align-content: flex-start;
+  `
+
   return (
     <MainContainer>
       {data.length > 0 && (
-        <Container>
+        <ResponseContainer>
           {data.map((item) => (
             <CardContainer className='card' key={item.recipe.uri}>
               <section>
@@ -61,15 +68,15 @@ const ResponseCards = ({data}) => {
                 <h2 style={{margin: '0'}}>{item.recipe.label}</h2>
                 <h3 style={{margin: '0', paddingBottom: '5px'}}>{item.recipe.cuisineType[0]} {item.recipe.mealType[0]}</h3>
               </section>
-              <Span>
+              <ResSpan>
                 <p style={{marginTop: '10px', paddingLeft:'20px', overFlow: 'hidden'}}>
                   {(item.recipe.ingredientLines).join(', ')}
                 </p>
                 <a href={item.recipe.url} target="_blank" rel="noopener noreferrer">Recipe here</a>
-              </Span>
+              </ResSpan>
             </CardContainer>
           ))}
-        </Container>
+        </ResponseContainer>
       )}
     </MainContainer>
   )
